@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Favourite Event</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<body >
+<h1 class="mx-5">Update Favourite Event</h1>
+ <button id="dark-mode-btn" class="btn btn-secondary mb-3 mx-3 d-none"></button>
+<form action="" method="post" enctype="multipart/form-data" class="mx-5">
+    {% csrf_token %}
+    <div id="div_id_name" class="mb-3">
+        <label for="id_name" class="form-label requiredField">
+            Event Name<span class="asteriskField">*</span>
+        </label>
+        <input type="text" name="name" value="{{ event.name }}" maxlength="100" class="textinput form-control" required id="id_name">
+    </div>
+
+    <div id="div_id_venue" class="mb-3">
+        <label for="id_venue" class="form-label requiredField">
+            Venue<span class="asteriskField">*</span>
+        </label>
+        <input type="text" name="venue" value="{{ event.venue }}" maxlength="100" class="textinput form-control" required id="id_venue">
+    </div>
+
+    <div id="div_id_city" class="mb-3">
+        <label for="id_city" class="form-label requiredField">
+            City<span class="asteriskField">*</span>
+        </label>
+        <input type="text" name="city" value="{{ event.city }}" maxlength="100" class="textinput form-control" required id="id_city">
+    </div>
+
+    <div id="div_id_state" class="mb-3">
+        <label for="id_state" class="form-label requiredField">
+            State<span class="asteriskField">*</span>
+        </label>
+        <input type="text" name="state" value="{{ event.state }}" maxlength="100" class="textinput form-control" required id="id_state">
+    </div>
+
+    <div id="div_id_date" class="mb-3">
+        <label for="id_date" class="form-label">
+            Date
+        </label>
+        <input type="text" name="date" value="{{ event.date }}" maxlength="50" class="textinput form-control" id="id_date">
+    </div>
+
+    <div id="div_id_time" class="mb-3">
+        <label for="id_time" class="form-label">
+            Time
+        </label>
+        <input type="text" name="time" value="{{ event.time }}" maxlength="20" class="textinput form-control" id="id_time">
+    </div>
+
+    <div id="div_id_url" class="mb-3">
+        <label for="id_url" class="form-label requiredField">
+            Event URL<span class="asteriskField">*</span>
+        </label>
+        <input type="url" name="url" value="{{ event.url }}" class="textinput form-control" required id="id_url">
+    </div>
+
+    <div id="div_id_images_url" class="mb-3">
+        <label for="id_images_url" class="form-label">
+            Image URL
+        </label>
+        <input type="url" name="images_url" value="{{ event.images_url }}" class="textinput form-control" id="id_images_url">
+        
+           
+    </div>
+
+    
+
+<div class="my-3">
+            <a href="{% url 'display_favourite' %}" class="btn btn-info"><i class="fas fa-arrow-left"></i> Go Back</a>
+            <button type="reset" class="btn btn-warning"><i class="fas fa-redo-alt"></i> Reset</button>
+            <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Save</button>
+        </div>
+</form>
+
+<script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
